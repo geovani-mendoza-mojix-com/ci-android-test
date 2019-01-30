@@ -12,11 +12,6 @@ node() {
             sh './gradlew lintDebug'
             printStatus()
         }
-
-        stage('Static analysis') {
-            sh './gradlew lintDebug'
-            androidLint pattern: '**/lint-results-*.xml'
-        }
     } finally {
         stage('Build APK') {
             sh './gradlew assembleDebug'
