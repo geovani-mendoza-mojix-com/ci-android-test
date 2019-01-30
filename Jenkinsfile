@@ -3,7 +3,7 @@
 node() {
     checkout scm
     stage('Greeting'){
-        def username = 'Gvs'
+        def username = 'Geo'
         echo 'Hello Mr. ${username}'
     }
 }
