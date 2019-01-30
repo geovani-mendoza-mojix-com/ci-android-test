@@ -1,9 +1,11 @@
 #!groovy
 
 node() {
+    environment {
+     username = 'Geovani :3'
+   }
     checkout scm
     stage('Greeting'){
-        def username = 'Geovani :3'
         echo 'Hello Mr. ${username}'
     }
 }
