@@ -2,7 +2,7 @@
 
 node() {
     environment {
-     username = 'Geovani :3'
+     username = 'Geovani'
    }
     checkout scm
     stage('Greeting'){
