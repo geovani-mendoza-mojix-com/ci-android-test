@@ -7,24 +7,21 @@ node() {
             sh './gradlew compileDebugSources'
             printStatus()
         }
-
         stage('Static analysis') {
             sh './gradlew lintDebug'
             printStatus()
         }
+    } catch (e) {
+        // If there was an exception thrown, the build failed
+        currentBuild.result = "FAILED"
+        throw e
     } finally {
+        // Success or failure, always send notifications
         stage('Build APK') {
             sh './gradlew assembleDebug'
             archiveArtifacts '**/*.apk'
             printStatus()
         }
-    }
-}
-
-def printStatus() {
-    if (currentBuild.result == 'FAILURE') {
-        echo "BUILD STATUS: FAILURE"
-    } else {
-        echo "BUILD STATUS: SUCCESS"
+        notifyBuild(currentBuild.result)
     }
 }
