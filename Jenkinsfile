@@ -6,6 +6,6 @@ node() {
    }
     checkout scm
     stage('Greeting'){
-        echo 'Hello Mr. ${username}'
+        echo 'Hello Mr. ' + username
     }
 }
