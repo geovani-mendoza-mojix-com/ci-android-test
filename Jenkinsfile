@@ -48,5 +48,5 @@ def notifyBuild(String buildStatus = 'STARTED') {
 
   // Send notifications
   //slackSend (color: colorCode, message: summary, tokenCredentialId: 'slack-token')
-  print ${buildStatus}
+  println buildStatus
 }
